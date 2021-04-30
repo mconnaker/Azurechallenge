@@ -30,7 +30,7 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" --profile-name "acgconnakerarc" --name "acgconnakerarc" --resource-group "ACGAzureResumeChallenge"
+           az cdn endpoint purge --content-paths  "/*" --profile-name "connakgithubactions" --name "connakgithubactions" --resource-group "ACGAzureResumeChallenge"
   
   
   # Azure logout 
