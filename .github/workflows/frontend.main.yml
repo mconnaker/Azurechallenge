@@ -1,4 +1,4 @@
-name: Blob storage website CI
+name: deploy_frontend
 
 on:
     push:
@@ -8,6 +8,8 @@ on:
     pull_request:
         branches: [ main ]
 
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,18 +18,21 @@ jobs:
     - uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
         azcliversion: 2.0.72
         inlineScript: |
-            az storage blob upload-batch --account-name acgarcstorage -d '$web' -s .
+            az storage blob upload-batch --account-name acgarcstorage -d '$web' -s /frontend
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
         azcliversion: 2.0.72
         inlineScript: |
            az cdn endpoint purge --content-paths  "/*" --profile-name "acgconnakerarc" --name "acgconnakerarc" --resource-group "ACGAzureResumeChallenge"
+  
+  
   # Azure logout 
     - name: logout
       run: |
