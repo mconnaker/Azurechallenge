@@ -207,8 +207,8 @@ ul#nav li.current a { color: #F06000; }
 }
 #about .profile-pic {
    position: relative;
-   width: 120px;
-   height: 120px;
+   width: 200px;
+   height: 250px;
    border-radius: 100%;
 }
 #about .contact-details { width: 41.66667%; }
@@ -261,6 +261,10 @@ ul#nav li.current a { color: #F06000; }
 #resume .header-col { padding-top: 9px; }
 #resume .main-col { padding-right: 10%; }
 
+#resume .cert-pic {
+   width: 200px;
+   height: 200px;
+}
 .education, .work {
    margin-bottom: 48px;
    padding-bottom: 24px;
