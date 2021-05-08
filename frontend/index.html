@@ -25,8 +25,42 @@
    <!-- Script
    ================================================== -->
    <script src="js/modernizr.js"></script>
-   <script src="main.js"></script>
-
+   <!--   <script src="main.js"></script> -->
+   <script>
+      function getLoadCount(){
+  
+          // call an AWS gateway API, that then calls an AWS Lambda
+          // to read and then update AWS DynamoDB item showing load count
+  
+          // Note call is synchronous, delays should be minimal
+          var req = new XMLHttpRequest();  
+          req.open('GET', 
+          "https://z578rcz3v9.execute-api.us-east-1.amazonaws.com/beta", 
+          false);   
+          req.send();  
+          if(req.status == 200)
+              {  
+                  len = req.responseText.length;
+                  // response text has opening and closing double quotes
+                  console.log(req.responseText.substring(1, len-1));
+                  // set field in footer
+                  document.getElementById("loadcount").textContent = 
+                      req.responseText.substring(10, len-2);
+              }
+          else {
+              // NOT OK response, so log in console
+              console.log(req.status)
+          }//end if
+      }// end getLoadCount
+  
+      // read and write visit count into footer, then increment count in DB
+      window.onload = function(){
+  
+              // side effects
+              // getLoadCount() updates field in footer, increments count in DB
+              getLoadCount();
+          }; //end window.onload 
+  </script>
    <!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.png" >
@@ -55,7 +89,7 @@
       <div class="row banner">
          <div class="banner-text">
             <h1 class="responsive-headline">Hello, I'm Michael</h1>
-            <p>You are the <a id="counter"></a> person to visit my Resume page</p>
+            <p>You are the <span id="loadcount"></span> person to visit my Resume page</p>
             <hr />
             <ul class="social">
                <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
