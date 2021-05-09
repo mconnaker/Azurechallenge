@@ -3,7 +3,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-const localApi = 'http://localhost:7071/api/apiacgarc';
 const functionApi = 'https://updatecount.azurewebsites.net/api/updatecount'; 
 
 const getVisitCount = () => {
