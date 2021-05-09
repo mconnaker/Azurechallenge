@@ -13,19 +13,19 @@ using System.Text;
 
 namespace Company.Function
 {
-    public static class GetResumeCounter
+    public static class updatecount
     {
-        [FunctionName("GetCounter")]
+        [FunctionName("updatecount")]
         public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-            [CosmosDB(databaseName:"acgarc-db", collectionName: "acgarc-container",
-                ConnectionStringSetting = "acgarc-db", Id = "index", PartitionKey = "index")] Counter counter,
-                [CosmosDB(databaseName:"acgarc-db", collectionName: "acgarc-container",
-                ConnectionStringSetting = "acgarc-db", Id = "index", PartitionKey = "index")] out Counter updatedCounter,
+            [CosmosDB(databaseName:"visitcount", collectionName: "visitcount",
+                ConnectionStringSetting = "visitcount", Id = "resumename", PartitionKey = "appname")] Counter counter,
+                [CosmosDB(databaseName:"visitcount", collectionName: "visitcount",
+                ConnectionStringSetting = "visitcount", Id = "index", PartitionKey = "index")] out Counter updatedCounter,
             ILogger log)
         {
 
-            log.LogInformation("GetCounter was triggered.");
+            log.LogInformation("updatecount was triggered.");
 
             updatedCounter = counter;
             updatedCounter.Count += 1;

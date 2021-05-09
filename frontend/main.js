@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 const localApi = 'http://localhost:7071/api/apiacgarc';
-const functionApi = 'https://apiacgarc.azurewebsites.net/api/HttpTrigger1?code=4W/fBqTxqeleng5qxgd0a9Kuh/RuFrQl5v/N6x6SPYy8wXvGNa3xFA=='; 
+const functionApi = 'https://updatecount.azurewebsites.net/api/updatecount'; 
 
 const getVisitCount = () => {
     let count = 30;
