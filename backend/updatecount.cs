@@ -21,12 +21,12 @@ namespace Company.Function
             [CosmosDB(databaseName:"visitcount", collectionName: "visitcount",
                 ConnectionStringSetting = "visitcount", Id = "resumename", PartitionKey = "appname")] counter counter,
                 [CosmosDB(databaseName:"visitcount", collectionName: "visitcount",
-                ConnectionStringSetting = "visitcount", Id = "index", PartitionKey = "index")] out counter updatedCounter,
+                ConnectionStringSetting = "visitcount", Id = "resumename", PartitionKey = "appname")] out counter updatedCounter,
             ILogger log)
         {
             log.LogInformation("updatecount was triggered.");
             updatedCounter = counter;
-            updatedCounter.Count += 1;
+            updatedCounter.count += 1;
             var jsonToReturn = JsonConvert.SerializeObject(counter);
             return new HttpResponseMessage(HttpStatusCode.OK)
             {
