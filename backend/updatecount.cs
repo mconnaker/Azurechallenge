@@ -19,19 +19,15 @@ namespace Company.Function
         public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             [CosmosDB(databaseName:"visitcount", collectionName: "visitcount",
-                ConnectionStringSetting = "visitcount", Id = "resumename", PartitionKey = "appname")] Counter counter,
+                ConnectionStringSetting = "visitcount", Id = "resumename", PartitionKey = "appname")] counter counter,
                 [CosmosDB(databaseName:"visitcount", collectionName: "visitcount",
-                ConnectionStringSetting = "visitcount", Id = "index", PartitionKey = "index")] out Counter updatedCounter,
+                ConnectionStringSetting = "visitcount", Id = "index", PartitionKey = "index")] out counter updatedCounter,
             ILogger log)
         {
-
             log.LogInformation("updatecount was triggered.");
-
             updatedCounter = counter;
             updatedCounter.Count += 1;
-
             var jsonToReturn = JsonConvert.SerializeObject(counter);
-
             return new HttpResponseMessage(HttpStatusCode.OK)
             {
                 Content = new StringContent(jsonToReturn, Encoding.UTF8, "application/json")
