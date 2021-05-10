@@ -2,8 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     getVisitCount();
 });
 
-
-const functionApi = 'https://updatecount.azurewebsites.net/api/updatecount?code=tL1Ovq3m8GAJ1abXTYeC/NtLbelG39Zyj3C8yphJ5mUCcnya5v2t5A=='; 
+const functionApi = 'https://acgarcupdatecount.azurewebsites.net/api/HttpTrigger1?code=J1uakCTqr0iEJAxbGFLzIONVyg74hUGtTpacLCdz2xdrUqXLZps1mw=='; 
 
 const getVisitCount = () => {
     let count = 30;
