@@ -5,17 +5,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const functionApi = 'https://acgarcupdatecount.azurewebsites.net/api/HttpTrigger1?code=J1uakCTqr0iEJAxbGFLzIONVyg74hUGtTpacLCdz2xdrUqXLZps1mw=='; 
 
 const getVisitCount = () => {
-    let count = 30;
-    fetch(functionApi)
+    let count = 0;
+    fetch(functionApi, {
+        node: 'cors',
+    })
     .then(response => {
         return response.json()
     })
-    .then(response => {
-        console.log("Website called function API.");
-        count = response.count;
-        document.getElementById('counter').innerText = count;
-    }).catch(function(error) {
-        console.log(error);
-      });
+    .then(res => {
+        const count= res;
+        document.getElementbyId('counter').innerText =count;
+        document.getElementById()'vistorElem').style.display = 'block';   
+    })
     return count;
 }
