@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     getVisitCount();
 });
 
-const apigateway = 'https://acgarcupdatecount.azurewebsites.net/api/HttpTrigger1?code=J1uakCTqr0iEJAxbGFLzIONVyg74hUGtTpacLCdz2xdrUqXLZps1mw==';
+const apigateway = 'https://acgarcupdatecount.azurewebsites.net/api/HttpTrigger1?code=AxUYLXmokvsQAAmE7dEN7T87q2w1DcQsKElY1R9jveHDtYHkBghVWQ==';
 
 const getVisitCount = () => {
     let count = 0;
