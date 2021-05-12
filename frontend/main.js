@@ -7,12 +7,12 @@ const ApiGateway = 'https://acgarcupdatecount.azurewebsites.net/api/HttpTrigger1
 const getVisitCount = () => {
     let count = 0;
     fetch(ApiGateway)
-    
+
     .then(response => {
         return response.json()
     })
 
-    .then(response => {
+    .then(res => {
         console.log("Website called function API.");
         const count = res;
         document.getElementById('counter').innerText = count;
