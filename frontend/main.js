@@ -20,5 +20,3 @@ const getVisitCount = () => {
       });
     return count;
 }
-
-SELECT * FROM c WHERE c.id = {id}
