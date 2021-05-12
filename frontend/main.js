@@ -6,9 +6,7 @@ const ApiGateway = 'https://acgarcupdatecount.azurewebsites.net/api/HttpTrigger1
 
 const getVisitCount = () => {
     let count = 0;
-    fetch(ApiGateway, {
-        mode: 'cores',
-    })
+    fetch(ApiGateway)
     .then(response => {
         return response.json()
     })
@@ -22,3 +20,5 @@ const getVisitCount = () => {
       });
     return count;
 }
+
+SELECT * FROM c WHERE c.id = {id}
